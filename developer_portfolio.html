@@ -349,30 +349,30 @@
             <!-- Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Project 1: Point of Sale (POS) System -->
+                <!-- Project 1: Adwuma Marketplace -->
                 <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Full-Stack Commerce</span>
-                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('pos')">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">Full-Stack Marketplace</span>
+                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('adwuma')">
                                     <i class="fa-solid fa-up-right-from-square"></i>
                                 </div>
                             </div>
-                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Point of Sale (POS) System</h4>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Adwuma Platform</h4>
                             <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                                Robust retail management system featuring real-time inventory tracking, Paystack payment integration, sales analytics, and thermal receipt generation.
+                                On-demand artisan and service marketplace platform featuring dual matching models (Adwuma Flex & Direct Booking), atomic PostgreSQL job claiming, real-time chat, and digital wallet escrow payments.
                             </p>
                         </div>
                         <div class="pt-6 border-t border-gray-800 space-y-4">
                             <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">TypeScript</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Node.js</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">SQLite</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Paystack API</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 19</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Express 5</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase / Postgres</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase Realtime</span>
                             </div>
-                            <button onclick="openProjectModal('pos')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
-                                View Details & Specs
+                            <button onclick="openProjectModal('adwuma')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                View Architecture & Specs
                             </button>
                         </div>
                     </div>
@@ -696,65 +696,79 @@
 
         // Project Modal Specification Data
         const projectsData = {
-            pos: {
-                title: "Point of Sale (POS) Commercial System",
-                category: "Full-Stack Software Architecture",
-                description: "A comprehensive retail POS solution built for performance and security. Supports cash & card processing via Paystack API integration, automatic dynamic invoice/receipt generation, item barcode lookup, inventory threshold alerts, and SQLite relational data storage.",
-                highlights: [
-                    "Paystack API webhook payment confirmation",
-                    "Offline-first local SQLite transactional caching",
-                    "Custom receipt layout generation engine",
-                    "Inventory audit log tracking"
+            adwuma: {
+                title: "Adwuma — On-Demand Artisan & Service Marketplace",
+                category: "Full-Stack Software & Systems Architecture",
+                description: "A complete service marketplace ecosystem connecting customers with verified local artisans and technicians through dual matching channels, instant messaging, transaction escrow holding, and bulletproof atomic concurrency control.",
+                features: [
+                    "Dual Service Matching Models: Adwuma Flex (Open Job Broadcasting & Bidding Pool) and Premium Direct Booking (Browsing curated profiles, completed job metrics, and portfolios).",
+                    "Concurrency-Safe Atomic Job Claiming: Custom PL/pgSQL compare-and-swap function (claim_request) preventing race conditions when multiple artisans accept an open request simultaneously.",
+                    "Real-Time Chat Engine: Supabase Realtime WebSocket communication channels paired with dynamic notifications for seamless customer-artisan coordination.",
+                    "Digital Wallet & Transaction Ledger: Supports Mobile Money top-ups, escrow holds, payout releases upon job completion, and detailed audit logging.",
+                    "Verified Artisan Profiles & Admin Pipeline: Provider dashboard for job tracking & portfolio management alongside a customer-to-artisan verification submission and admin review system.",
+                    "Ratings, Reviews & Support: Automated database triggers recalculating average artisan star ratings post-job completion, supplemented by a ticketed dispute resolution system."
                 ],
-                tech: ["TypeScript", "Node.js", "SQLite", "Express", "Paystack API"]
+                techStack: {
+                    Frontend: ["React 19", "Vite", "React Router v7", "Custom Modular CSS System", "React Context API", "Supabase JS Client"],
+                    Backend: ["Node.js (ES Modules)", "Express 5", "Supabase Admin SDK", "Custom JWT & RBAC (requireAuth, requireAdmin)"],
+                    DatabaseCloud: ["Supabase (PostgreSQL 15+)", "Row Level Security (RLS)", "Supabase Realtime CDC (supabase_realtime)", "PL/pgSQL Triggers & Atomic Functions"]
+                }
             },
             irrigation: {
                 title: "ESP8266 Smart Automated Irrigation System",
                 category: "IoT Microcontrollers & Cloud Telemetry",
                 description: "An Internet-of-Things smart agriculture platform. Features capacitive soil moisture monitoring, micro-water pump relay control, dynamic telemetry transmission to a hosted REST Node.js server on Render, and alert notifications.",
-                highlights: [
-                    "ESP8266 Wi-Fi microcontroller firmware in C++",
+                features: [
+                    "ESP8266 Wi-Fi microcontroller firmware written in C++",
                     "Low power consumption sleep mode algorithms",
                     "Cloud telemetry backend hosted on Render",
                     "Real-time sensor value dynamic charts"
                 ],
-                tech: ["ESP8266", "C++ / Arduino IDE", "Node.js", "Render Cloud", "REST APIs"]
+                techStack: {
+                    Core: ["ESP8266", "C++ / Arduino IDE", "Node.js", "Render Cloud", "REST APIs"]
+                }
             },
             streamplus: {
                 title: "Streamplus Streaming Platform",
                 category: "Web Application & Media Processing",
                 description: "Modern interactive streaming media front-end application built for streaming video libraries. Includes user catalog filtering, real-time search, personal user watch histories, responsive video players, and slick dark mode layouts.",
-                highlights: [
+                features: [
                     "Modular React component structure",
                     "Persistent watch history state storage",
                     "Fluid thumbnail animations & modals",
                     "Responsive grid layouts for mobile/desktop"
                 ],
-                tech: ["React", "JavaScript (ES6+)", "CSS3 / Tailwind", "REST API", "Node.js"]
+                techStack: {
+                    Core: ["React", "JavaScript (ES6+)", "CSS Modules", "REST API", "Node.js"]
+                }
             },
             riscv: {
                 title: "RISC-V CPU Hardware Simulation",
                 category: "Computer Architecture & Assembly",
                 description: "A detailed computer system simulation leveraging the Ripes graphical RISC-V simulator. Models instruction pipeline stages (Fetch, Decode, Execute, Memory, Writeback), register file changes, and memory bus operations.",
-                highlights: [
+                features: [
                     "Hand-crafted RISC-V Assembly subroutines",
                     "Data hazard and branch prediction analysis",
                     "Memory-mapped I/O simulation",
                     "Instruction execution trace documentation"
                 ],
-                tech: ["RISC-V Assembly", "Ripes Architecture Simulator", "Computer Architecture"]
+                techStack: {
+                    Core: ["RISC-V Assembly", "Ripes Architecture Simulator", "Computer Architecture"]
+                }
             },
             opengl: {
                 title: "OpenGL 2D Dynamic Graphics Engine",
                 category: "Low-Level Graphics & C++",
-                description: "Custom 2D graphics render engine built using C++ and the GLUT (OpenGL Utility Toolkit) framework. Demonstrates vector mathematics, matrix transformations (scaling, rotation, translation), double buffering, and custom dynamic primitives.",
-                highlights: [
+                description: "Custom 2D graphics render engine built using C++ and the GLUT (OpenGL Utility Toolkit) framework. Demonstrates vector mathematics, matrix transformations (scaling, rotation, translation), double buffering, and dynamic object rendering.",
+                features: [
                     "Direct frame buffer matrix transformation algorithms",
                     "Smooth dynamic frame animation rendering loop",
                     "Keyboard/Mouse interactive callbacks",
                     "Optimized render pipeline without external heavy game engines"
                 ],
-                tech: ["C++", "OpenGL", "GLUT Framework", "Matrix Mathematics"]
+                techStack: {
+                    Core: ["C++", "OpenGL", "GLUT Framework", "Matrix Mathematics"]
+                }
             }
         };
 
@@ -763,20 +777,41 @@
             if (!project) return;
 
             const modalContent = document.getElementById('modal-content');
+            
+            let techStackHTML = '';
+            if (project.techStack.Frontend) {
+                techStackHTML = `
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider">Architecture & Tech Stack</h4>
+                        <div class="space-y-2 text-xs font-mono">
+                            <div><span class="text-brand-blue font-bold">Frontend:</span> <span class="text-gray-300">${project.techStack.Frontend.join(', ')}</span></div>
+                            <div><span class="text-brand-purple font-bold">Backend:</span> <span class="text-gray-300">${project.techStack.Backend.join(', ')}</span></div>
+                            <div><span class="text-emerald-400 font-bold">Database & Cloud:</span> <span class="text-gray-300">${project.techStack.DatabaseCloud.join(', ')}</span></div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                techStackHTML = `
+                    <div>
+                        <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-2">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.techStack.Core.map(t => `<span class="px-2.5 py-1 rounded bg-gray-800 text-xs font-mono text-gray-300">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
             modalContent.innerHTML = `
                 <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 inline-block mb-3">${project.category}</span>
                 <h3 class="text-2xl font-bold text-white mb-3">${project.title}</h3>
                 <p class="text-gray-300 text-sm leading-relaxed mb-6">${project.description}</p>
                 
-                <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-3">Key Technical Highlights</h4>
-                <ul class="space-y-2 mb-6">
-                    ${project.highlights.map(h => `<li class="text-xs text-gray-300 flex items-center"><i class="fa-solid fa-angle-right text-brand-cyan mr-2"></i> ${h}</li>`).join('')}
+                <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-3">Key Architectural & Functional Features</h4>
+                <ul class="space-y-2.5 mb-6">
+                    ${project.features.map(f => `<li class="text-xs text-gray-300 flex items-start"><i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-0.5"></i> <span>${f}</span></li>`).join('')}
                 </ul>
 
-                <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-3">Technologies Used</h4>
-                <div class="flex flex-wrap gap-2">
-                    ${project.tech.map(t => `<span class="px-2.5 py-1 rounded bg-gray-800 text-xs font-mono text-gray-300">${t}</span>`).join('')}
-                </div>
+                ${techStackHTML}
             `;
 
             document.getElementById('project-modal').classList.remove('hidden');
