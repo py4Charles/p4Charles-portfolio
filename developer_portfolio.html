@@ -355,8 +355,13 @@
                         <div>
                             <div class="flex items-center justify-between mb-3">
                                 <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">Full-Stack Marketplace</span>
-                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('adwuma')">
-                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                <div class="flex items-center space-x-3">
+                                    <a href="https://github.com/py4Charles/adwuma_build.git" target="_blank" rel="noopener noreferrer" title="View GitHub Repository" class="text-gray-400 hover:text-brand-cyan transition-colors text-lg">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('adwuma')" title="View Project Specs">
+                                        <i class="fa-solid fa-up-right-from-square"></i>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Adwuma Platform</h4>
@@ -371,9 +376,15 @@
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase / Postgres</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase Realtime</span>
                             </div>
-                            <button onclick="openProjectModal('adwuma')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
-                                View Architecture & Specs
-                            </button>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openProjectModal('adwuma')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                    View Specs
+                                </button>
+                                <a href="https://github.com/py4Charles/adwuma_build.git" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-semibold text-xs sm:text-sm text-center flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)] transition-all">
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -436,30 +447,42 @@
                     </div>
                 </div>
 
-                <!-- Project 4: RISC-V CPU Simulation -->
+                <!-- Project 4: spotiCheck -->
                 <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">Computer Architecture</span>
-                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('riscv')">
-                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Mobile & Serverless Edge</span>
+                                <div class="flex items-center space-x-3 text-gray-400">
+                                    <a href="https://github.com/py4Charles/spotifyCheck.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
+                                        <i class="fa-brands fa-github text-lg"></i>
+                                    </a>
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('spoticheck')">
+                                        <i class="fa-solid fa-up-right-from-square"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">RISC-V CPU Simulation</h4>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">spotiCheck</h4>
                             <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                                Low-level instruction set architecture simulation built using the Ripes simulator to demonstrate datapath execution and register state management.
+                                Spotify Family Plan billing management and automated reminder platform featuring fair cost splitting, automated Deno edge function push notifications, and offline resilience.
                             </p>
                         </div>
                         <div class="pt-6 border-t border-gray-800 space-y-4">
                             <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">RISC-V Assembly</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Ripes Simulator</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Computer Org</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Expo (SDK 58)</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React Native</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">TanStack Query</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase Edge</span>
                             </div>
-                            <button onclick="openProjectModal('riscv')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
-                                View Details & Specs
-                            </button>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openProjectModal('spoticheck')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
+                                    Details
+                                </button>
+                                <a href="https://github.com/py4Charles/spotifyCheck.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-medium text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1.5">
+                                    <i class="fa-brands fa-github text-xs"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -699,6 +722,7 @@
             adwuma: {
                 title: "Adwuma — On-Demand Artisan & Service Marketplace",
                 category: "Full-Stack Software & Systems Architecture",
+                repoUrl: "https://github.com/py4Charles/adwuma_build.git",
                 description: "A complete service marketplace ecosystem connecting customers with verified local artisans and technicians through dual matching channels, instant messaging, transaction escrow holding, and bulletproof atomic concurrency control.",
                 features: [
                     "Dual Service Matching Models: Adwuma Flex (Open Job Broadcasting & Bidding Pool) and Premium Direct Booking (Browsing curated profiles, completed job metrics, and portfolios).",
@@ -712,6 +736,24 @@
                     Frontend: ["React 19", "Vite", "React Router v7", "Custom Modular CSS System", "React Context API", "Supabase JS Client"],
                     Backend: ["Node.js (ES Modules)", "Express 5", "Supabase Admin SDK", "Custom JWT & RBAC (requireAuth, requireAdmin)"],
                     DatabaseCloud: ["Supabase (PostgreSQL 15+)", "Row Level Security (RLS)", "Supabase Realtime CDC (supabase_realtime)", "PL/pgSQL Triggers & Atomic Functions"]
+                }
+            },
+            spoticheck: {
+                title: "spotiCheck — Spotify Family Plan Billing & Reminder Platform",
+                category: "Mobile Application & Serverless Edge Architecture",
+                repoUrl: "https://github.com/py4Charles/spotifyCheck.git",
+                description: "Eliminates manual calculations and billing headaches for shared subscriptions by automating member management, fair-split billing cycles, payment tracking, and scheduled push notification reminders.",
+                features: [
+                    "Spotify-Inspired Dark Mode UI: Styled using custom design tokens (#090D0A dark canvas with #1DB954 Spotify green accent).",
+                    "Fair Split Billing Cycles: Calculates per-member shares evenly for GHS, NGN, KES, ZAR, USD, EUR, and GBP with remainder cent rounding.",
+                    "Payment & Due Tracking: Real-time status indicators (Paid, Unpaid, Overdue) with transaction method logging.",
+                    "Automated Push Reminders: Idempotent Supabase Deno Edge Function triggers scheduled notifications before, on, and after due dates.",
+                    "Frictionless Onboarding & Invites: Email-matched registration automatically ties new accounts to existing plan groups.",
+                    "Offline Resilience: TanStack Query combined with React Native Async Storage persister provides immediate cached loads offline."
+                ],
+                techStack: {
+                    Frontend: ["Expo (SDK 58)", "React Native 0.88.1", "React 19", "Expo Router v4", "TanStack Query v5", "expo-notifications"],
+                    Backend: ["Supabase PostgreSQL (RLS)", "Supabase Deno Edge Functions", "Supabase Auth (OTP / Magic Links)"]
                 }
             },
             irrigation: {
@@ -740,20 +782,6 @@
                 ],
                 techStack: {
                     Core: ["React", "JavaScript (ES6+)", "CSS Modules", "REST API", "Node.js"]
-                }
-            },
-            riscv: {
-                title: "RISC-V CPU Hardware Simulation",
-                category: "Computer Architecture & Assembly",
-                description: "A detailed computer system simulation leveraging the Ripes graphical RISC-V simulator. Models instruction pipeline stages (Fetch, Decode, Execute, Memory, Writeback), register file changes, and memory bus operations.",
-                features: [
-                    "Hand-crafted RISC-V Assembly subroutines",
-                    "Data hazard and branch prediction analysis",
-                    "Memory-mapped I/O simulation",
-                    "Instruction execution trace documentation"
-                ],
-                techStack: {
-                    Core: ["RISC-V Assembly", "Ripes Architecture Simulator", "Computer Architecture"]
                 }
             },
             opengl: {
@@ -786,7 +814,7 @@
                         <div class="space-y-2 text-xs font-mono">
                             <div><span class="text-brand-blue font-bold">Frontend:</span> <span class="text-gray-300">${project.techStack.Frontend.join(', ')}</span></div>
                             <div><span class="text-brand-purple font-bold">Backend:</span> <span class="text-gray-300">${project.techStack.Backend.join(', ')}</span></div>
-                            <div><span class="text-emerald-400 font-bold">Database & Cloud:</span> <span class="text-gray-300">${project.techStack.DatabaseCloud.join(', ')}</span></div>
+                            ${project.techStack.DatabaseCloud ? `<div><span class="text-emerald-400 font-bold">Database & Cloud:</span> <span class="text-gray-300">${project.techStack.DatabaseCloud.join(', ')}</span></div>` : ''}
                         </div>
                     </div>
                 `;
@@ -801,6 +829,15 @@
                 `;
             }
 
+            const repoBtnHTML = project.repoUrl ? `
+                <div class="pt-4 border-t border-gray-800">
+                    <a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-white transition-all">
+                        <i class="fa-brands fa-github text-base"></i>
+                        <span>Visit GitHub Repository</span>
+                    </a>
+                </div>
+            ` : '';
+
             modalContent.innerHTML = `
                 <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 inline-block mb-3">${project.category}</span>
                 <h3 class="text-2xl font-bold text-white mb-3">${project.title}</h3>
@@ -812,6 +849,15 @@
                 </ul>
 
                 ${techStackHTML}
+
+                ${project.repoUrl ? `
+                <div class="pt-6 mt-6 border-t border-gray-800">
+                    <a href="${project.repoUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-bold text-xs sm:text-sm text-gray-200 transition-all duration-200 flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-github text-base"></i>
+                        <span>Visit GitHub Repository</span>
+                    </a>
+                </div>
+                ` : ''}
             `;
 
             document.getElementById('project-modal').classList.remove('hidden');
