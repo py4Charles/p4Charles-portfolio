@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles David Appiah Jnr | Full-Stack & Systems Developer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            purple: '#7f00ff',
+                            accent: '#3b82f6',
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            border: '#1f2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' },
+                            '100%': { boxShadow: '0 0 30px rgba(0, 242, 254, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060913;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism styling */
+        .glass {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(6, 9, 19, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Glowing gradients */
+        .text-gradient {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #00c6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #7f00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .border-gradient {
+            border-image: linear-gradient(to right, #00f2fe, #7f00ff) 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060913;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+
+        /* Subtle grid background overlay */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-grid antialiased selection:bg-brand-cyan selection:text-black">
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-1/4 right-10 w-[400px] h-[400px] bg-brand-purple/15 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+    <div class="fixed top-2/3 left-10 w-[350px] h-[350px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo / Monogram -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-blue to-brand-purple p-[2px] transition-transform duration-300 group-hover:scale-105">
+                    <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center font-mono font-bold text-brand-cyan">
+                        CA
+                    </div>
+                </div>
+                <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-cyan transition-colors">
+                    Charlie<span class="text-brand-cyan">.dev</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-gray-300 hover:text-brand-cyan transition-colors py-1 relative group">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#skills" class="text-gray-300 hover:text-brand-cyan transition-colors py-1 relative group">
+                    Skills
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="text-gray-300 hover:text-brand-cyan transition-colors py-1 relative group">
+                    Projects
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#education" class="text-gray-300 hover:text-brand-cyan transition-colors py-1 relative group">
+                    Education
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-semibold hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all duration-300 transform hover:-translate-y-0.5">
+                    Get in Touch
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/60 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-800 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">About</a>
+            <a href="#skills" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Skills</a>
+            <a href="#projects" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Projects</a>
+            <a href="#education" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Education</a>
+            <a href="#contact" class="block w-full text-center px-5 py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-semibold shadow-md">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="pt-20">
+
+        <!-- 1. Hero / Header Section -->
+        <section id="hero" class="min-h-[calc(100vh-80px)] flex items-center justify-center relative py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto text-center space-y-8 z-10">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-brand-cyan/30 text-brand-cyan text-xs sm:text-sm font-mono tracking-wide shadow-inner">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-cyan animate-ping"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-cyan -ml-5"></span>
+                    <span>Available for Engineering Opportunities</span>
+                </div>
+
+                <!-- Main Headline -->
+                <div class="space-y-4">
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none text-white">
+                        Hi, I'm <span class="text-gradient">Charles David Appiah Jnr</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-400 font-medium">
+                        Known to many as <span class="text-brand-cyan font-semibold">Charlie Appiah</span>
+                    </p>
+                </div>
+
+                <!-- Bio Summary -->
+                <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+                    <strong class="font-semibold text-white">Full-Stack & Systems Developer</strong> bridging the gap between web architecture, hardware IoT solutions, and low-level computer engineering. Crafting resilient web platforms, embedded microcontrollers, and modern software engines.
+                </p>
+
+                <!-- Quick CTA Buttons & Social Links -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-slate-950 font-bold text-base hover:shadow-[0_0_25px_rgba(0,242,254,0.5)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                        <span>View Featured Work</span>
+                        <i class="fa-solid fa-arrow-down text-sm"></i>
+                    </a>
+                    
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl glass hover:bg-gray-800/80 text-white font-semibold text-base border border-gray-700 hover:border-brand-cyan/50 transition-all duration-300 flex items-center justify-center space-x-2">
+                        <span>Get in Touch</span>
+                        <i class="fa-regular fa-envelope text-brand-cyan"></i>
+                    </a>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="flex items-center justify-center space-x-6 pt-6 text-gray-400">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-3 rounded-xl glass hover:text-brand-cyan hover:border-brand-cyan/40 transition-all duration-300 transform hover:scale-110">
+                        <i class="fa-brands fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-3 rounded-xl glass hover:text-brand-cyan hover:border-brand-cyan/40 transition-all duration-300 transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                    </a>
+                    <a href="mailto:charlie.appiah@example.com" aria-label="Email Contact" class="p-3 rounded-xl glass hover:text-brand-cyan hover:border-brand-cyan/40 transition-all duration-300 transform hover:scale-110">
+                        <i class="fa-solid fa-at text-2xl"></i>
+                    </a>
+                </div>
+
+                <!-- Code Terminal Feature Snippet -->
+                <div class="mt-12 max-w-2xl mx-auto text-left rounded-xl overflow-hidden glass border border-gray-800 shadow-2xl">
+                    <div class="bg-gray-950/80 px-4 py-3 flex items-center space-x-2 border-b border-gray-800">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-xs font-mono text-gray-400 ml-2">charlie@developer: ~</span>
+                    </div>
+                    <div class="p-5 font-mono text-xs sm:text-sm space-y-2 text-gray-300 leading-relaxed bg-black/40">
+                        <p><span class="text-brand-purple">const</span> <span class="text-brand-cyan">developer</span> = {</p>
+                        <p class="pl-4"><span class="text-blue-400">name</span>: <span class="text-emerald-400">'Charles David Appiah Jnr'</span>,</p>
+                        <p class="pl-4"><span class="text-blue-400">alias</span>: <span class="text-emerald-400">'Charlie Appiah'</span>,</p>
+                        <p class="pl-4"><span class="text-blue-400">coreFocus</span>: [<span class="text-emerald-400">'Full-Stack Web'</span>, <span class="text-emerald-400">'IoT Solutions'</span>, <span class="text-emerald-400">'Systems Dev'</span>],</p>
+                        <p class="pl-4"><span class="text-blue-400">passionateAbout</span>: <span class="text-emerald-400">'High-performance architecture & microcontroller engineering'</span></p>
+                        <p>};</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Skills & Technologies Section -->
+        <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono text-brand-cyan tracking-widest uppercase">Tech Stack & Competencies</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Skills & Technologies</h3>
+                <p class="text-gray-400 text-base sm:text-lg">
+                    A comprehensive toolkit spanning client-side interfaces, cloud backends, database engines, and hardware microcontrollers.
+                </p>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12" id="skill-filters">
+                <button data-filter="all" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-brand-cyan border-brand-cyan/50 bg-brand-cyan/10 transition-all">All Skills</button>
+                <button data-filter="languages" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-gray-400 hover:text-white transition-all">Languages</button>
+                <button data-filter="tech" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-gray-400 hover:text-white transition-all">Frameworks & Tech</button>
+                <button data-filter="tools" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-gray-400 hover:text-white transition-all">Tools & Software</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="skills-grid">
+                
+                <!-- Card 1: Languages -->
+                <div class="skill-card glass p-8 rounded-2xl border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 relative group overflow-hidden" data-category="languages">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-cyan/5 rounded-bl-full pointer-events-none group-hover:bg-brand-cyan/10 transition-all"></div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Programming Languages</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">JavaScript (ES6+)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">TypeScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">C++</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">C</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">C#</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">HTML5</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">CSS3 / Tailwind</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">SQL</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Tech & Frameworks -->
+                <div class="skill-card glass p-8 rounded-2xl border border-gray-800 hover:border-brand-blue/40 transition-all duration-300 relative group overflow-hidden" data-category="tech">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/5 rounded-bl-full pointer-events-none group-hover:bg-brand-blue/10 transition-all"></div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue text-2xl">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Tech & Frameworks</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">React.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">Node.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">SQLite</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">REST APIs</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">ESP8266 / Arduino IoT</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">OpenGL / GLUT</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">Express.js</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tools & Workflow -->
+                <div class="skill-card glass p-8 rounded-2xl border border-gray-800 hover:border-brand-purple/40 transition-all duration-300 relative group overflow-hidden" data-category="tools">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-bl-full pointer-events-none group-hover:bg-brand-purple/10 transition-all"></div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple text-2xl">
+                            <i class="fa-solid fa-[#fa-screwdriver-wrench] fa-screwdriver-wrench"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Tools & Environment</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">VS Code</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Git & GitHub</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Visual Studio</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">OBS Studio</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Adobe Suite</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Render Cloud</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Vercel Deployment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Featured Projects Section -->
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 space-y-4 md:space-y-0">
+                <div>
+                    <h2 class="text-xs font-mono text-brand-cyan tracking-widest uppercase">Portfolio & Case Studies</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Projects</h3>
+                </div>
+                <p class="text-gray-400 max-w-md text-sm sm:text-base">
+                    From custom commercial POS applications to IoT telemetry backends and low-level computer graphics engines.
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project 1: Point of Sale (POS) System -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Full-Stack Commerce</span>
+                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('pos')">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Point of Sale (POS) System</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Robust retail management system featuring real-time inventory tracking, Paystack payment integration, sales analytics, and thermal receipt generation.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">TypeScript</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Node.js</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">SQLite</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Paystack API</span>
+                            </div>
+                            <button onclick="openProjectModal('pos')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                View Details & Specs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: ESP8266 Smart Irrigation System -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20">IoT & Telemetry</span>
+                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('irrigation')">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">ESP8266 Smart Irrigation System</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Microcontroller-driven automated soil moisture monitoring with real-time sensor telemetry hosted on a cloud backend on Render.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">ESP8266</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">C++ / Arduino</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Node.js</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Render Cloud</span>
+                            </div>
+                            <button onclick="openProjectModal('irrigation')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                View Details & Specs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Streamplus Streaming App -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">Web Application</span>
+                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('streamplus')">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Streamplus Media Platform</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Comprehensive media streaming portal offering video catalog browsing, persistent watch histories, user authorization, and fluid user interactions.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">REST APIs</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Node.js</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">CSS Modules</span>
+                            </div>
+                            <button onclick="openProjectModal('streamplus')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                View Details & Specs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: RISC-V CPU Simulation -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">Computer Architecture</span>
+                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('riscv')">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">RISC-V CPU Simulation</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Low-level instruction set architecture simulation built using the Ripes simulator to demonstrate datapath execution and register state management.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">RISC-V Assembly</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Ripes Simulator</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Computer Org</span>
+                            </div>
+                            <button onclick="openProjectModal('riscv')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                View Details & Specs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: OpenGL 2D Graphics Engine -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">Graphics & C++</span>
+                                <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('opengl')">
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">OpenGL 2D Engine</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Dynamic rendering application constructed in C++ using GLUT for shape transformation, matrix operations, and smooth frame buffer animation.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">C++</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">OpenGL</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">GLUT Library</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Math Transformations</span>
+                            </div>
+                            <button onclick="openProjectModal('opengl')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                View Details & Specs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Education & Academic Background -->
+        <section id="education" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono text-brand-cyan tracking-widest uppercase">Academic Foundations</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Education & Coursework Focus</h3>
+                <p class="text-gray-400 text-base sm:text-lg">
+                    Solid theoretical background underpinning modern practical software engineering.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Degree Overview Card -->
+                <div class="glass p-8 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-cyan to-brand-purple p-[1px]">
+                            <div class="w-full h-full bg-brand-dark rounded-[15px] flex items-center justify-center text-brand-cyan text-2xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">B.Sc. Computer Science & Software Engineering</h4>
+                            <p class="text-brand-cyan font-mono text-sm mt-1">Core Focus: Distributed Systems & Hardware Architecture</p>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed pt-2">
+                            Curriculum emphasizing algorithm design, hardware-software abstraction layers, relational database management, data networking standards, and modern programming paradigms.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-gray-800 flex items-center justify-between text-xs font-mono text-gray-400">
+                        <span><i class="fa-solid fa-book-open text-brand-cyan mr-2"></i>Computer Science Stream</span>
+                        <span><i class="fa-solid fa-check-circle text-emerald-400 mr-1"></i> Continuous Learning</span>
+                    </div>
+                </div>
+
+                <!-- Academic Pillars / Modules -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass p-6 rounded-xl border border-gray-800 space-y-2 hover:border-brand-cyan/30 transition-all">
+                        <i class="fa-solid fa-diagram-project text-brand-cyan text-xl"></i>
+                        <h5 class="font-bold text-white text-base">Algorithms & Data Structures</h5>
+                        <p class="text-gray-400 text-xs">Asymptotic analysis, tree operations, dynamic programming, and algorithmic efficiency.</p>
+                    </div>
+
+                    <div class="glass p-6 rounded-xl border border-gray-800 space-y-2 hover:border-brand-blue/30 transition-all">
+                        <i class="fa-solid fa-network-wired text-brand-blue text-xl"></i>
+                        <h5 class="font-bold text-white text-base">Data Communications</h5>
+                        <p class="text-gray-400 text-xs">TCP/IP stack, socket programming, telemetry streams, network topology & protocols.</p>
+                    </div>
+
+                    <div class="glass p-6 rounded-xl border border-gray-800 space-y-2 hover:border-brand-purple/30 transition-all">
+                        <i class="fa-solid fa-microchip text-brand-purple text-xl"></i>
+                        <h5 class="font-bold text-white text-base">Computer Architecture</h5>
+                        <p class="text-gray-400 text-xs">RISC instruction set design, memory hierarchy, register transfer, and CPU pipelines.</p>
+                    </div>
+
+                    <div class="glass p-6 rounded-xl border border-gray-800 space-y-2 hover:border-emerald-400/30 transition-all">
+                        <i class="fa-solid fa-infinity text-emerald-400 text-xl"></i>
+                        <h5 class="font-bold text-white text-base">Discrete Systems</h5>
+                        <p class="text-gray-400 text-xs">Boolean algebra, logic gates, graph theory, state machines, and computational logic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact & Footer Section -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
+            <div class="max-w-4xl mx-auto glass p-8 sm:p-12 rounded-3xl border border-gray-800 relative overflow-hidden">
+                <!-- Decorative background elements -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-2xl mx-auto space-y-4 mb-10">
+                    <h2 class="text-xs font-mono text-brand-cyan tracking-widest uppercase">Let's Collaborate</h2>
+                    <h3 class="text-3xl sm:text-4xl font-bold text-white">Get In Touch</h3>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Have a project in mind, an IoT solution to build, or a software role to fill? Send a message and let's discuss.
+                    </p>
+                </div>
+
+                <!-- Contact Form UI -->
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label for="name" class="block text-xs font-mono text-gray-300">YOUR NAME</label>
+                            <input type="text" id="name" required placeholder="e.g. Alex Morgan" class="w-full px-4 py-3 rounded-xl bg-gray-950/80 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-brand-cyan transition-colors text-sm">
+                        </div>
+                        <div class="space-y-2">
+                            <label for="email" class="block text-xs font-mono text-gray-300">EMAIL ADDRESS</label>
+                            <input type="email" id="email" required placeholder="e.g. alex@example.com" class="w-full px-4 py-3 rounded-xl bg-gray-950/80 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-brand-cyan transition-colors text-sm">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="message" class="block text-xs font-mono text-gray-300">YOUR MESSAGE</label>
+                        <textarea id="message" rows="5" required placeholder="Tell me about your project or inquiry..." class="w-full px-4 py-3 rounded-xl bg-gray-950/80 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-brand-cyan transition-colors text-sm resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-slate-950 font-bold text-base hover:shadow-[0_0_25px_rgba(0,242,254,0.4)] transition-all duration-300 flex items-center justify-center space-x-2">
+                        <span>Send Message</span>
+                        <i class="fa-solid fa-paper-plane text-sm"></i>
+                    </button>
+                </form>
+
+                <!-- Feedback Toast Banner -->
+                <div id="toast-success" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm text-center font-mono">
+                    <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your message has been sent successfully. Charlie will get back to you soon.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto space-y-6">
+            <div class="flex items-center justify-center space-x-6 text-gray-400">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors">
+                    <i class="fa-brands fa-github text-xl"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors">
+                    <i class="fa-brands fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="mailto:charlie.appiah@example.com" class="hover:text-brand-cyan transition-colors">
+                    <i class="fa-solid fa-envelope text-xl"></i>
+                </a>
+            </div>
+            <p class="text-xs font-mono text-gray-500">
+                &copy; <span id="year"></span> Charles David Appiah Jnr (Charlie Appiah). All rights reserved. Built with Tailwind CSS & ready for Vercel.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass max-w-2xl w-full rounded-2xl border border-gray-800 p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProjectModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Dynamically populated content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Set current dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on nav link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Skills Filter Logic
+        const filterBtns = document.querySelectorAll('.skill-filter-btn');
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('text-brand-cyan', 'border-brand-cyan/50', 'bg-brand-cyan/10');
+                    b.classList.add('text-gray-400');
+                });
+                // Highlight clicked button
+                btn.classList.remove('text-gray-400');
+                btn.classList.add('text-brand-cyan', 'border-brand-cyan/50', 'bg-brand-cyan/10');
+
+                const filter = btn.getAttribute('data-filter');
+
+                skillCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Project Modal Specification Data
+        const projectsData = {
+            pos: {
+                title: "Point of Sale (POS) Commercial System",
+                category: "Full-Stack Software Architecture",
+                description: "A comprehensive retail POS solution built for performance and security. Supports cash & card processing via Paystack API integration, automatic dynamic invoice/receipt generation, item barcode lookup, inventory threshold alerts, and SQLite relational data storage.",
+                highlights: [
+                    "Paystack API webhook payment confirmation",
+                    "Offline-first local SQLite transactional caching",
+                    "Custom receipt layout generation engine",
+                    "Inventory audit log tracking"
+                ],
+                tech: ["TypeScript", "Node.js", "SQLite", "Express", "Paystack API"]
+            },
+            irrigation: {
+                title: "ESP8266 Smart Automated Irrigation System",
+                category: "IoT Microcontrollers & Cloud Telemetry",
+                description: "An Internet-of-Things smart agriculture platform. Features capacitive soil moisture monitoring, micro-water pump relay control, dynamic telemetry transmission to a hosted REST Node.js server on Render, and alert notifications.",
+                highlights: [
+                    "ESP8266 Wi-Fi microcontroller firmware in C++",
+                    "Low power consumption sleep mode algorithms",
+                    "Cloud telemetry backend hosted on Render",
+                    "Real-time sensor value dynamic charts"
+                ],
+                tech: ["ESP8266", "C++ / Arduino IDE", "Node.js", "Render Cloud", "REST APIs"]
+            },
+            streamplus: {
+                title: "Streamplus Streaming Platform",
+                category: "Web Application & Media Processing",
+                description: "Modern interactive streaming media front-end application built for streaming video libraries. Includes user catalog filtering, real-time search, personal user watch histories, responsive video players, and slick dark mode layouts.",
+                highlights: [
+                    "Modular React component structure",
+                    "Persistent watch history state storage",
+                    "Fluid thumbnail animations & modals",
+                    "Responsive grid layouts for mobile/desktop"
+                ],
+                tech: ["React", "JavaScript (ES6+)", "CSS3 / Tailwind", "REST API", "Node.js"]
+            },
+            riscv: {
+                title: "RISC-V CPU Hardware Simulation",
+                category: "Computer Architecture & Assembly",
+                description: "A detailed computer system simulation leveraging the Ripes graphical RISC-V simulator. Models instruction pipeline stages (Fetch, Decode, Execute, Memory, Writeback), register file changes, and memory bus operations.",
+                highlights: [
+                    "Hand-crafted RISC-V Assembly subroutines",
+                    "Data hazard and branch prediction analysis",
+                    "Memory-mapped I/O simulation",
+                    "Instruction execution trace documentation"
+                ],
+                tech: ["RISC-V Assembly", "Ripes Architecture Simulator", "Computer Architecture"]
+            },
+            opengl: {
+                title: "OpenGL 2D Dynamic Graphics Engine",
+                category: "Low-Level Graphics & C++",
+                description: "Custom 2D graphics render engine built using C++ and the GLUT (OpenGL Utility Toolkit) framework. Demonstrates vector mathematics, matrix transformations (scaling, rotation, translation), double buffering, and custom dynamic primitives.",
+                highlights: [
+                    "Direct frame buffer matrix transformation algorithms",
+                    "Smooth dynamic frame animation rendering loop",
+                    "Keyboard/Mouse interactive callbacks",
+                    "Optimized render pipeline without external heavy game engines"
+                ],
+                tech: ["C++", "OpenGL", "GLUT Framework", "Matrix Mathematics"]
+            }
+        };
+
+        function openProjectModal(key) {
+            const project = projectsData[key];
+            if (!project) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <span class="px-3 py-1 rounded-full text-xs font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20 inline-block mb-3">${project.category}</span>
+                <h3 class="text-2xl font-bold text-white mb-3">${project.title}</h3>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">${project.description}</p>
+                
+                <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-3">Key Technical Highlights</h4>
+                <ul class="space-y-2 mb-6">
+                    ${project.highlights.map(h => `<li class="text-xs text-gray-300 flex items-center"><i class="fa-solid fa-angle-right text-brand-cyan mr-2"></i> ${h}</li>`).join('')}
+                </ul>
+
+                <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-3">Technologies Used</h4>
+                <div class="flex flex-wrap gap-2">
+                    ${project.tech.map(t => `<span class="px-2.5 py-1 rounded bg-gray-800 text-xs font-mono text-gray-300">${t}</span>`).join('')}
+                </div>
+            `;
+
+            document.getElementById('project-modal').classList.remove('hidden');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Close Modal on overlay click
+        document.getElementById('project-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'project-modal') {
+                closeProjectModal();
+            }
+        });
+
+        // Contact Form Submission logic (Simulated Toast Feedback)
+        const contactForm = document.getElementById('contact-form');
+        const toastSuccess = document.getElementById('toast-success');
+        const submitBtn = document.getElementById('submit-btn');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Disable button during simulated dispatch
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75');
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sending...</span>`;
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75');
+                submitBtn.innerHTML = `<span>Send Message</span> <i class="fa-solid fa-paper-plane text-sm"></i>`;
+                
+                // Show toast & reset form
+                toastSuccess.classList.remove('hidden');
+                contactForm.reset();
+
+                setTimeout(() => {
+                    toastSuccess.classList.add('hidden');
+                }, 6000);
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
