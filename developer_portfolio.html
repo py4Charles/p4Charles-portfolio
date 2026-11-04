@@ -637,6 +637,47 @@
                     </div>
                 </div>
 
+                <!-- Project 8: Healzy Backend Spring -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-teal-500/10 text-teal-400 border border-teal-500/20">Spring Boot REST API</span>
+                                <div class="flex items-center space-x-3 text-gray-400">
+                                    <a href="https://github.com/py4Charles/healzy-spring-backend.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
+                                        <i class="fa-brands fa-github text-lg"></i>
+                                    </a>
+                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('healzy')">
+                                        <i class="fa-solid fa-up-right-from-square"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Healzy Backend Spring</h4>
+                            <p class="text-xs font-mono text-brand-cyan/90 my-1"><i class="fa-solid fa-server mr-1"></i>Pure Backend Integration</p>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Robust backend API built using Spring Boot for managing flashcard sets and user authentication with JWT security tokens, role-based access control, and full CRUD resource management.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Java 17+</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Spring Boot 3</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Spring Security</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">JWT</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openProjectModal('healzy')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                    View Specs
+                                </button>
+                                <a href="https://github.com/py4Charles/healzy-spring-backend.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -921,6 +962,24 @@
                     Firmware: ["ESP8266 C++", "Arduino Framework", "HTTPClient", "Wokwi Simulator"],
                     Backend: ["Python 3", "Flask", "Flask-SocketIO", "SQLite", "Open-Meteo API"],
                     Frontend: ["React 19", "Vite", "Tailwind CSS", "Recharts", "Lucide Icons"]
+                }
+            },
+            healzy: {
+                title: "Healzy Backend Spring — RESTful Flashcard & Auth Service",
+                category: "Spring Boot REST API & Pure Backend Integration",
+                repoUrl: "https://github.com/py4Charles/healzy-spring-backend.git",
+                description: "This is the backend service for the Healzy application, built using Java and Spring Boot. It provides a resilient, secure RESTful API for managing flashcard sets and user authentication with JWT token security. Engineered specifically as a pure backend integration.",
+                features: [
+                    "User Authentication & Security: Registration and login powered by Spring Security and JWT bearer tokens.",
+                    "Flashcard Set Management: Full CRUD operations for creating, updating, retrieving, and deleting flashcard sets.",
+                    "Protected API Endpoints: Token-based authorization ensuring secure access control across user resources.",
+                    "Scalable Architecture: Enterprise Spring Boot structure with clean layer separation (Controllers, Services, Repositories)."
+                ],
+                techStack: {
+                    FrameworkServer: ["Spring Boot 3", "Java 17+"],
+                    SecurityAuth: ["Spring Security", "JSON Web Tokens (JWT)"],
+                    Persistence: ["Spring Data JPA", "Hibernate ORM", "PostgreSQL / H2"],
+                    BuildTools: ["Maven", "Gradle"]
                 }
             }
         };
