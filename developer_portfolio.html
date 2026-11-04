@@ -578,6 +578,46 @@
                     </div>
                 </div>
 
+                <!-- Project 7: Smart-irrigation -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">IoT & Embedded Systems</span>
+                                <div class="flex items-center space-x-3 text-gray-400">
+                                    <a href="https://github.com/py4Charles/cdnb-solo-build.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
+                                        <i class="fa-brands fa-github text-lg"></i>
+                                    </a>
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('smartirrigation')">
+                                        <i class="fa-solid fa-up-right-from-square"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Smart-irrigation</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                End-to-end IoT irrigation system with ESP8266 microcontrollers, Python Flask/Socket.IO backend, Open-Meteo predictive rain-skip automation, and a React 19 real-time telemetry dashboard.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">ESP8266 C++</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Python / Flask</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Flask-SocketIO</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 19</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openProjectModal('smartirrigation')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
+                                    View Specs
+                                </button>
+                                <a href="https://github.com/py4Charles/cdnb-solo-build.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-medium text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1.5">
+                                    <i class="fa-brands fa-github text-xs"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -821,8 +861,112 @@
                     Frontend: ["React 19", "Vite 8", "Socket.io Client 4", "Vanilla CSS3 (Flexbox/Grid)", "Custom SVGs"],
                     Backend: ["Node.js (ES Modules)", "Express 5", "Socket.io 4", "CORS Middleware", "Nodemon / Node native --watch"]
                 }
+            },
+            smartirrigation: {
+                title: "Smart-irrigation — Intelligent IoT Irrigation System",
+                category: "Embedded Microcontrollers, IoT & Cloud Automation",
+                repoUrl: "https://github.com/py4Charles/cdnb-solo-build.git",
+                description: "An end-to-end, IoT-enabled intelligent irrigation solution combining ESP8266 microcontrollers, a Python Flask/Socket.IO backend, and a modern React 19 telemetry dashboard.",
+                features: [
+                    "Embedded Firmware (ESP8266-firmware/): High-priority ADC sampling loop (every 100ms) mapped to 0–100% soil moisture, local pump actuation (<40% default), non-blocking HTTP POST reporting every 2s, relay boot-click suppression, and Wokwi browser simulation support.",
+                    "Predictive Rain-Skip Automation: Integrated with Open-Meteo Weather API analyzing 12h precipitation probability and expected rain; automatically suspends watering if rain probability is ≥45% or expected precipitation >0.5 mm.",
+                    "Run-Dry Pump Safety & Watchdogs: Automatically stops pump if reservoir water level drops below 5% to prevent pump burnout. Watchdog flags hardware offline if telemetry ceases for >30s and dispatches Discord/Slack webhook alerts.",
+                    "Interactive React 19 Dashboard: Live telemetry badges, interactive metric cards with colored threshold progress bars, Recharts 30-point soil moisture trend line charts, dynamic threshold sliders (10%–70%), predictive rain-skip banner, and built-in hardware telemetry simulator."
+                ],
+                techStack: {
+                    Firmware: ["ESP8266 C++", "Arduino Framework", "HTTPClient", "Wokwi Simulator"],
+                    Backend: ["Python 3", "Flask", "Flask-SocketIO", "SQLite", "Open-Meteo API"],
+                    Frontend: ["React 19", "Vite", "Tailwind CSS", "Recharts", "Lucide Icons"]
+                }
             }
         };
 
         function openProjectModal(key) {
-<!-- ... existing code -->
+            const data = projectsData[key];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            
+            let techStackHtml = '';
+            for (const [section, techArray] of Object.entries(data.techStack)) {
+                techStackHtml += `
+                    <div>
+                        <h5 class="text-xs font-mono text-gray-400 uppercase tracking-wider mb-2">${section}</h5>
+                        <div class="flex flex-wrap gap-2">
+                            ${techArray.map(tech => `<span class="px-2.5 py-1 rounded bg-gray-800 text-gray-300 text-xs font-mono border border-gray-700/50">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            let repoBtnHtml = '';
+            if (data.repoUrl) {
+                repoBtnHtml = `
+                    <a href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-bold text-sm text-center flex items-center justify-center space-x-2 hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all">
+                        <i class="fa-brands fa-github text-base"></i>
+                        <span>Visit GitHub Repository</span>
+                    </a>
+                `;
+            }
+
+            modalContent.innerHTML = `
+                <div class="space-y-4">
+                    <div class="border-b border-gray-800 pb-4">
+                        <span class="text-xs font-mono text-brand-cyan uppercase tracking-wider">${data.category}</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">${data.title}</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">${data.description}</p>
+                    
+                    <div class="space-y-2">
+                        <h4 class="text-xs font-mono text-gray-400 uppercase tracking-wider">Key Features & Architecture</h4>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                            ${data.features.map(f => `<li class="flex items-start"><i class="fa-solid fa-check text-brand-cyan mr-2.5 mt-1 text-xs"></i><span>${f}</span></li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="pt-2 space-y-3">
+                        ${techStackHtml}
+                    </div>
+
+                    ${repoBtnHtml ? `<div class="pt-4">${repoBtnHtml}</div>` : ''}
+                </div>
+            `;
+
+            document.getElementById('project-modal').classList.remove('hidden');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Close modal on outside click
+        document.getElementById('project-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'project-modal') {
+                closeProjectModal();
+            }
+        });
+
+        // Contact Form Submission Handler
+        const contactForm = document.getElementById('contact-form');
+        const toastSuccess = document.getElementById('toast-success');
+        const submitBtn = document.getElementById('submit-btn');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Sending...</span>';
+
+            setTimeout(() => {
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Send Message</span><i class="fa-solid fa-paper-plane text-sm"></i>';
+                toastSuccess.classList.remove('hidden');
+
+                setTimeout(() => {
+                    toastSuccess.classList.add('hidden');
+                }, 5000);
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
