@@ -83,12 +83,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .text-gradient-purple {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #7f00ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -110,15 +104,6 @@
             background-image: 
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        }
-
-        /* Terminal Cursor */
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
         }
     </style>
 </head>
@@ -157,6 +142,10 @@
                     Projects
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
                 </a>
+                <a href="#experience" class="text-gray-300 hover:text-brand-cyan transition-colors py-1 relative group">
+                    Experience
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
+                </a>
                 <a href="#education" class="text-gray-300 hover:text-brand-cyan transition-colors py-1 relative group">
                     Education
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-cyan transition-all duration-300 group-hover:w-full"></span>
@@ -177,6 +166,7 @@
             <a href="#about" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">About</a>
             <a href="#skills" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Skills</a>
             <a href="#projects" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Projects</a>
+            <a href="#experience" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Experience</a>
             <a href="#education" class="block text-gray-300 hover:text-brand-cyan transition-colors py-2 text-base font-medium">Education</a>
             <a href="#contact" class="block w-full text-center px-5 py-3 rounded-xl bg-brand-cyan text-slate-950 font-semibold shadow-md">
                 Get in Touch
@@ -185,7 +175,7 @@
     </header>
 
     <!-- Main Content Wrapper -->
-    <main class="pt-20 flex-grow">
+    <main class="pt-20">
 
         <!-- 1. Hero / Header Section -->
         <section id="hero" class="min-h-[calc(100vh-80px)] flex items-center justify-center relative py-16 px-4 sm:px-6 lg:px-8">
@@ -196,7 +186,7 @@
                     <span>Available for Engineering Opportunities</span>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-4" id="about">
                     <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none text-white">
                         Hi, I'm <span class="text-gradient">Charles David Appiah Jnr</span>
                     </h1>
@@ -205,7 +195,7 @@
                     </p>
                 </div>
 
-                <p id="about" class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+                <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-light">
                     <strong class="font-semibold text-white">Full-Stack & Systems Developer</strong> bridging the gap between web architecture, hardware IoT solutions, and low-level computer engineering. Crafting resilient web platforms, embedded microcontrollers, and modern software engines.
                 </p>
 
@@ -233,23 +223,19 @@
                     </a>
                 </div>
 
-                <!-- Code Terminal Snippet -->
-                <div class="mt-12 max-w-2xl mx-auto text-left rounded-xl overflow-hidden glass border border-gray-800 shadow-2xl animate-float">
-                    <div class="bg-gray-950/80 px-4 py-3 flex items-center justify-between border-b border-gray-800">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <span class="text-xs font-mono text-gray-400 ml-2">charlie@developer: ~</span>
-                        </div>
-                        <span class="text-[10px] font-mono text-brand-cyan/80 bg-brand-cyan/10 px-2 py-0.5 rounded">bash v5.2</span>
+                <div class="mt-12 max-w-2xl mx-auto text-left rounded-xl overflow-hidden glass border border-gray-800 shadow-2xl">
+                    <div class="bg-gray-950/80 px-4 py-3 flex items-center space-x-2 border-b border-gray-800">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-xs font-mono text-gray-400 ml-2">charlie@developer: ~</span>
                     </div>
                     <div class="p-5 font-mono text-xs sm:text-sm space-y-2 text-gray-300 leading-relaxed bg-black/40">
                         <p><span class="text-brand-purple">const</span> <span class="text-brand-cyan">developer</span> = {</p>
                         <p class="pl-4"><span class="text-blue-400">name</span>: <span class="text-emerald-400">'Charles David Appiah Jnr'</span>,</p>
                         <p class="pl-4"><span class="text-blue-400">alias</span>: <span class="text-emerald-400">'py4Charles'</span>,</p>
                         <p class="pl-4"><span class="text-blue-400">coreFocus</span>: [<span class="text-emerald-400">'Full-Stack Web'</span>, <span class="text-emerald-400">'IoT Solutions'</span>, <span class="text-emerald-400">'Systems Dev'</span>],</p>
-                        <p class="pl-4"><span class="text-blue-400">passionateAbout</span>: <span class="text-emerald-400">'High-performance architecture & microcontrollers'</span></p>
+                        <p class="pl-4"><span class="text-blue-400">passionateAbout</span>: <span class="text-emerald-400">'High-performance architecture & microcontroller engineering'</span></p>
                         <p>};</p>
                     </div>
                 </div>
@@ -266,7 +252,6 @@
                 </p>
             </div>
 
-            <!-- Category Filters -->
             <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12" id="skill-filters">
                 <button data-filter="all" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-brand-cyan border-brand-cyan/50 bg-brand-cyan/10 transition-all">All Skills</button>
                 <button data-filter="languages" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-gray-400 hover:text-white transition-all">Languages</button>
@@ -274,7 +259,6 @@
                 <button data-filter="tools" class="skill-filter-btn px-5 py-2.5 rounded-xl glass text-sm font-medium text-gray-400 hover:text-white transition-all">Tools & Software</button>
             </div>
 
-            <!-- Skills Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="skills-grid">
                 
                 <!-- Card 1: Languages -->
@@ -287,15 +271,16 @@
                         <h4 class="text-xl font-bold text-white">Programming Languages</h4>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">JavaScript (ES6+)</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">TypeScript</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">C++</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">C</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">Python</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">C#</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">HTML5</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">CSS3 / Tailwind</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50 transition-colors">SQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">JavaScript (ES6+)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">TypeScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">C++</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">C</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">Java</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">C#</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">HTML5</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">CSS3 / Tailwind</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-cyan border border-gray-700/50">SQL</span>
                     </div>
                 </div>
 
@@ -309,13 +294,14 @@
                         <h4 class="text-xl font-bold text-white">Tech & Frameworks</h4>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">React.js</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">Node.js</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">SQLite / Postgres</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">REST APIs</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">ESP8266 / Arduino IoT</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">OpenGL / GLUT</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50 transition-colors">Express.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">React.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">FastAPI</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">Spring Boot</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">Node.js</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">SQLite / PostgreSQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">REST APIs</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">ESP8266 / Arduino IoT</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-blue border border-gray-700/50">Express.js</span>
                     </div>
                 </div>
 
@@ -329,13 +315,12 @@
                         <h4 class="text-xl font-bold text-white">Tools & Environment</h4>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">VS Code</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">Git & GitHub</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">Visual Studio</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">OBS Studio</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">Adobe Suite</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">Render Cloud</span>
-                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50 transition-colors">Vercel Deployment</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">VS Code</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Git & GitHub</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Visual Studio</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Adobe Suite / Figma</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Render Cloud</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-800/80 text-gray-300 text-xs font-mono hover:text-brand-purple border border-gray-700/50">Vercel Deployment</span>
                     </div>
                 </div>
             </div>
@@ -349,7 +334,7 @@
                     <h3 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Projects</h3>
                 </div>
                 <p class="text-gray-400 max-w-md text-sm sm:text-base">
-                    From custom commercial POS applications to IoT telemetry backends and low-level computer graphics engines.
+                    From custom marketplace platforms and fintech banking backends to streaming APIs, Spring flashcard systems, and IoT telemetry dashboards.
                 </p>
             </div>
 
@@ -357,7 +342,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Project 1: Adwuma Marketplace -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -366,9 +351,9 @@
                                     <a href="https://github.com/py4Charles/adwuma_build.git" target="_blank" rel="noopener noreferrer" title="View GitHub Repository" class="text-gray-400 hover:text-brand-cyan transition-colors text-lg">
                                         <i class="fa-brands fa-github"></i>
                                     </a>
-                                    <button class="text-gray-400 hover:text-white transition-colors" onclick="openProjectModal('adwuma')" title="View Project Specs">
+                                    <div class="text-gray-400 hover:text-white cursor-pointer" onclick="openProjectModal('adwuma')" title="View Project Specs">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Adwuma Platform</h4>
@@ -381,13 +366,12 @@
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 19</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Express 5</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase / Postgres</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase Realtime</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('adwuma')" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('adwuma')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/adwuma_build.git" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/adwuma_build.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -397,18 +381,18 @@
                 </div>
 
                 <!-- Project 2: Legacy Trust Bank -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">Fintech & Banking Platform</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">Fintech & Banking</span>
                                 <div class="flex items-center space-x-3 text-gray-400">
                                     <a href="https://github.com/py4Charles/legacy-trust-bank.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
                                         <i class="fa-brands fa-github text-lg"></i>
                                     </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('legacybank')">
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('legacybank')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Legacy Trust Bank</h4>
@@ -418,16 +402,15 @@
                         </div>
                         <div class="pt-6 border-t border-gray-800 space-y-4">
                             <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 18 / Vite 6</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 18 / Vite</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Express 4 / TS</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Prisma 6 (SQLite)</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Zod & Zustand</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('legacybank')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('legacybank')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/legacy-trust-bank.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/legacy-trust-bank.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -437,38 +420,36 @@
                 </div>
 
                 <!-- Project 3: StreamPlus API -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">Async REST API Engine</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">Pure Backend API</span>
                                 <div class="flex items-center space-x-3 text-gray-400">
                                     <a href="https://github.com/py4Charles/advanced_api_backend.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
                                         <i class="fa-brands fa-github text-lg"></i>
                                     </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('streamplus')">
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('streamplus')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">StreamPlus API</h4>
-                            <p class="text-xs font-mono text-brand-cyan/90 my-1"><i class="fa-solid fa-server mr-1"></i>Pure Backend Integration</p>
                             <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                                A modern, asynchronous RESTful API powering StreamPlus movie streaming operations built with FastAPI, SQLAlchemy 2.0 (Async), and Pydantic with dual-database support, passwordless OTP auth, and role-based access control.
+                                Asynchronous RESTful API for video streaming operations. Pure backend integration powering movie catalogs, passwordless OTP, JWT security, and watchlists.
                             </p>
                         </div>
                         <div class="pt-6 border-t border-gray-800 space-y-4">
                             <div class="flex flex-wrap gap-1.5">
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">FastAPI</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">SQLAlchemy 2.0 Async</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">PostgreSQL & SQLite</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Pydantic</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">SQLAlchemy 2.0</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Postgres / SQLite</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('streamplus')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('streamplus')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/advanced_api_backend.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/advanced_api_backend.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -477,8 +458,47 @@
                     </div>
                 </div>
 
-                <!-- Project 4: spotiCheck -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <!-- Project 4: Healzy Backend Spring -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-red-500/10 text-red-400 border border-red-500/20">Java & Spring Boot</span>
+                                <div class="flex items-center space-x-3 text-gray-400">
+                                    <a href="https://github.com/py4Charles/healzy-spring-backend.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
+                                        <i class="fa-brands fa-github text-lg"></i>
+                                    </a>
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('healzy')">
+                                        <i class="fa-solid fa-up-right-from-square"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Healzy Backend Spring</h4>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Pure backend RESTful service for managing flashcard study sets, secure JWT user authentication, and flashcard management.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Java 17</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Spring Boot</span>
+                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Spring Security</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openProjectModal('healzy')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
+                                    View Specs
+                                </button>
+                                <a href="https://github.com/py4Charles/healzy-spring-backend.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                    <span>Repository</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: spotiCheck -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -487,9 +507,9 @@
                                     <a href="https://github.com/py4Charles/spotifyCheck.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
                                         <i class="fa-brands fa-github text-lg"></i>
                                     </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('spoticheck')">
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('spoticheck')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">spotiCheck</h4>
@@ -501,14 +521,13 @@
                             <div class="flex flex-wrap gap-1.5">
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Expo (SDK 58)</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React Native</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">TanStack Query</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase Edge</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('spoticheck')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('spoticheck')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/spotifyCheck.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/spotifyCheck.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -517,8 +536,8 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Glom data-house -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <!-- Project 6: Glom data-house -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -527,9 +546,9 @@
                                     <a href="https://github.com/py4Charles/glom_db.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
                                         <i class="fa-brands fa-github text-lg"></i>
                                     </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('glom')">
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('glom')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Glom data-house — v1.0.0</h4>
@@ -542,13 +561,12 @@
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 19</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Express 5</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">PostgreSQL</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Supabase Auth</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('glom')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('glom')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/glom_db.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/glom_db.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -557,8 +575,8 @@
                     </div>
                 </div>
 
-                <!-- Project 6: 2chat-app -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <!-- Project 7: 2chat-app -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -567,9 +585,9 @@
                                     <a href="https://github.com/py4Charles/2chat-app.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
                                         <i class="fa-brands fa-github text-lg"></i>
                                     </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('twochat')">
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('twochat')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">2chat-app</h4>
@@ -582,13 +600,12 @@
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Socket.io 4</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Express 5</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 19</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Vite 8</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('twochat')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('twochat')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/2chat-app.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/2chat-app.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -597,8 +614,8 @@
                     </div>
                 </div>
 
-                <!-- Project 7: Smart-irrigation -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
+                <!-- Project 8: Smart-irrigation -->
+                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group">
                     <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
@@ -607,9 +624,9 @@
                                     <a href="https://github.com/py4Charles/cdnb-solo-build.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
                                         <i class="fa-brands fa-github text-lg"></i>
                                     </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('smartirrigation')">
+                                    <div class="hover:text-white cursor-pointer" onclick="openProjectModal('smartirrigation')">
                                         <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                             <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Smart-irrigation</h4>
@@ -621,55 +638,13 @@
                             <div class="flex flex-wrap gap-1.5">
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">ESP8266 C++</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Python / Flask</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Flask-SocketIO</span>
                                 <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">React 19</span>
                             </div>
                             <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('smartirrigation')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
+                                <button onclick="openProjectModal('smartirrigation')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs text-gray-300 transition-all duration-200">
                                     View Specs
                                 </button>
-                                <a href="https://github.com/py4Charles/cdnb-solo-build.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
-                                    <i class="fa-brands fa-github text-sm"></i>
-                                    <span>Repository</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Healzy Backend Spring -->
-                <div class="glass rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-cyan/40 transition-all duration-300 flex flex-col group hover:-translate-y-1">
-                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono bg-teal-500/10 text-teal-400 border border-teal-500/20">Spring Boot REST API</span>
-                                <div class="flex items-center space-x-3 text-gray-400">
-                                    <a href="https://github.com/py4Charles/healzy-spring-backend.git" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" title="View GitHub Repository">
-                                        <i class="fa-brands fa-github text-lg"></i>
-                                    </a>
-                                    <button class="hover:text-white transition-colors" onclick="openProjectModal('healzy')">
-                                        <i class="fa-solid fa-up-right-from-square"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <h4 class="text-xl font-bold text-white group-hover:text-brand-cyan transition-colors">Healzy Backend Spring</h4>
-                            <p class="text-xs font-mono text-brand-cyan/90 my-1"><i class="fa-solid fa-server mr-1"></i>Pure Backend Integration</p>
-                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                                Robust backend API built using Spring Boot for managing flashcard sets and user authentication with JWT security tokens, role-based access control, and full CRUD resource management.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-gray-800 space-y-4">
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Java 17+</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Spring Boot 3</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">Spring Security</span>
-                                <span class="text-xs font-mono bg-gray-800/90 text-gray-300 px-2.5 py-1 rounded">JWT</span>
-                            </div>
-                            <div class="grid grid-cols-2 gap-2">
-                                <button onclick="openProjectModal('healzy')" class="py-2.5 rounded-xl bg-gray-800 hover:bg-brand-cyan hover:text-slate-950 font-medium text-xs sm:text-sm text-gray-300 transition-all duration-200">
-                                    View Specs
-                                </button>
-                                <a href="https://github.com/py4Charles/healzy-spring-backend.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1 hover:shadow-[0_0_15px_rgba(0,242,254,0.4)]">
+                                <a href="https://github.com/py4Charles/cdnb-solo-build.git" target="_blank" rel="noopener noreferrer" class="py-2.5 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-center font-semibold text-xs text-gray-300 hover:text-white transition-all duration-200 flex items-center justify-center space-x-1">
                                     <i class="fa-brands fa-github text-sm"></i>
                                     <span>Repository</span>
                                 </a>
@@ -681,7 +656,114 @@
             </div>
         </section>
 
-        <!-- 4. Education & Background Section -->
+        <!-- 4. Work Experience & Timeline Section -->
+        <section id="experience" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-mono text-brand-cyan tracking-widest uppercase">Career Journey</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">Experience & Freelance Milestones</h3>
+                <p class="text-gray-400 text-base sm:text-lg">
+                    A chronicle of software engineering internships, backend architecture delivery, UI/UX design, and production system rollouts.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto relative border-l-2 border-gray-800 ml-4 sm:ml-32 pl-6 sm:pl-8 space-y-12">
+
+                <!-- Timeline Item 1: 2023 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-brand-cyan group-hover:scale-125 transition-transform"></div>
+                    <span class="sm:absolute sm:-left-36 sm:top-1 text-xs font-mono text-brand-cyan font-bold block mb-1 sm:mb-0">2023</span>
+                    <div class="glass p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-cyan/40 transition-all space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h4 class="text-lg sm:text-xl font-bold text-white">Junior Software Developer Intern</h4>
+                            <span class="text-xs font-mono text-gray-400">Stanbic Bank (GoDigi Dept)</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span>Engineered an automated flight booking bot that scrapes target airline portals and places reservations according to customizable user filters.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span>Developed dynamic QR code tracker applications that record user device interaction metrics and telemetry once scanned.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: 2024 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-brand-cyan group-hover:scale-125 transition-transform"></div>
+                    <span class="sm:absolute sm:-left-36 sm:top-1 text-xs font-mono text-brand-cyan font-bold block mb-1 sm:mb-0">2024</span>
+                    <div class="glass p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-cyan/40 transition-all space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h4 class="text-lg sm:text-xl font-bold text-white">Junior Software Developer Intern</h4>
+                            <span class="text-xs font-mono text-gray-400">Stanbic Bank (GoDigi Dept)</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span>Helped engineer an enterprise conversational AI chatbot and fine-tuned model performance using telemetry and logging instrumentation.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span>Architected an active movie streaming backend engine handling asynchronous video playback streaming and structured catalog data.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: 2025 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-brand-cyan group-hover:scale-125 transition-transform"></div>
+                    <span class="sm:absolute sm:-left-36 sm:top-1 text-xs font-mono text-brand-cyan font-bold block mb-1 sm:mb-0">2025</span>
+                    <div class="glass p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-cyan/40 transition-all space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h4 class="text-lg sm:text-xl font-bold text-white">Independent Freelance Consultant</h4>
+                            <span class="text-xs font-mono text-gray-400">Design & Web Development</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span><strong>Product UI/UX Design:</strong> Created high-fidelity user workflows, design systems, and wireframes for mobile and web platforms.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span><strong>Web Design & Graphic Design:</strong> Delivered custom landing pages, visual branding assets, and marketing collateral for client campaigns.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4: 2026 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-dark border-2 border-brand-cyan group-hover:scale-125 transition-transform"></div>
+                    <span class="sm:absolute sm:-left-36 sm:top-1 text-xs font-mono text-brand-cyan font-bold block mb-1 sm:mb-0">2026</span>
+                    <div class="glass p-6 sm:p-8 rounded-2xl border border-gray-800 hover:border-brand-cyan/40 transition-all space-y-3">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <h4 class="text-lg sm:text-xl font-bold text-white">Full-Stack Freelance Engineering</h4>
+                            <span class="text-xs font-mono text-gray-400">Production App Deployments</span>
+                        </div>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span><strong>spotiCheck:</strong> Built a Spotify family subscription split-billing platform with Deno push notifications.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span><strong>Legacy Trust Bank:</strong> Developed a secure online banking web system with 2FA and integer transaction ledgers.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-angle-right text-brand-cyan mr-2 mt-1 text-xs"></i>
+                                <span><strong>Adwuma Marketplace:</strong> Built an artisan service platform facilitating local craftsmen with job claiming and escrow holds.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Education & Background Section -->
         <section id="education" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <h2 class="text-xs font-mono text-brand-cyan tracking-widest uppercase">Academic Foundation</h2>
@@ -708,7 +790,7 @@
             </div>
         </section>
 
-        <!-- 5. Contact Section -->
+        <!-- 6. Contact Section -->
         <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-900">
             <div class="max-w-4xl mx-auto glass p-8 sm:p-12 rounded-3xl border border-gray-800 relative overflow-hidden">
                 <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -752,43 +834,41 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-900 py-12 px-4 sm:px-6 lg:px-8 text-center bg-gray-950/40">
+    <footer class="border-t border-gray-900 py-12 px-4 sm:px-6 lg:px-8 text-center">
         <div class="max-w-7xl mx-auto space-y-6">
             <div class="flex items-center justify-center space-x-6 text-gray-400">
-                <a href="https://github.com/py4Charles" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" aria-label="GitHub">
+                <a href="https://github.com/py4Charles" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors">
                     <i class="fa-brands fa-github text-xl"></i>
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors" aria-label="LinkedIn">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors">
                     <i class="fa-brands fa-linkedin-in text-xl"></i>
                 </a>
-                <a href="mailto:charlie.appiah@example.com" class="hover:text-brand-cyan transition-colors" aria-label="Email">
+                <a href="mailto:charlie.appiah@example.com" class="hover:text-brand-cyan transition-colors">
                     <i class="fa-solid fa-envelope text-xl"></i>
                 </a>
             </div>
             <p class="text-xs font-mono text-gray-500">
-                &copy; <span id="year"></span> Charles David Appiah Jnr (Charlie Appiah). All rights reserved. Built with Tailwind CSS & dynamic components.
+                &copy; <span id="year"></span> Charles David Appiah Jnr (Charlie Appiah). All rights reserved. Built with Tailwind CSS & ready for deployment.
             </p>
         </div>
     </footer>
 
     <!-- Project Details Modal -->
-    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity">
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
         <div class="glass max-w-2xl w-full rounded-2xl border border-gray-800 p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeProjectModal()" aria-label="Close modal" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl focus:outline-none transition-colors">
+            <button onclick="closeProjectModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl focus:outline-none">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div id="modal-content">
-                <!-- Content injected dynamically -->
+                <!-- Dynamically populated content -->
             </div>
         </div>
     </div>
 
     <!-- Interactive JavaScript -->
     <script>
-        // Set dynamic current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Navigation Header Mobile Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -812,7 +892,6 @@
             });
         });
 
-        // Skill Filters Toggle
         const filterBtns = document.querySelectorAll('.skill-filter-btn');
         const skillCards = document.querySelectorAll('.skill-card');
 
@@ -837,149 +916,131 @@
             });
         });
 
-        // Project Modals Specification Data
         const projectsData = {
             adwuma: {
                 title: "Adwuma — On-Demand Artisan & Service Marketplace",
-                category: "Full-Stack Software & Systems Architecture",
+                category: "Full-Stack Software Architecture",
                 repoUrl: "https://github.com/py4Charles/adwuma_build.git",
-                description: "A complete service marketplace ecosystem connecting customers with verified local artisans and technicians through dual matching channels, instant messaging, transaction escrow holding, and bulletproof atomic concurrency control.",
+                description: "A service marketplace ecosystem connecting customers with verified local artisans through dual matching channels, instant messaging, transaction escrow holding, and atomic concurrency control.",
                 features: [
-                    "Dual Service Matching Models: Adwuma Flex (Open Job Broadcasting & Bidding Pool) and Premium Direct Booking.",
-                    "Concurrency-Safe Atomic Job Claiming: Custom PL/pgSQL compare-and-swap function preventing race conditions.",
-                    "Real-Time Chat Engine: Supabase Realtime WebSocket communication channels paired with dynamic notifications.",
-                    "Digital Wallet & Transaction Ledger: Supports Mobile Money top-ups, escrow holds, and payout releases upon job completion.",
-                    "Verified Artisan Profiles & Admin Pipeline: Provider dashboard for job tracking and verification submission.",
-                    "Ratings & Dispute System: Automated database triggers recalculating star ratings post-job completion."
+                    "Dual Service Matching: Adwuma Flex (Open Job Bidding Pool) and Direct Booking.",
+                    "Atomic Job Claiming: Custom PL/pgSQL function preventing double-booking race conditions.",
+                    "Real-Time Chat Engine: Supabase Realtime WebSocket communication.",
+                    "Digital Wallet & Escrow: Supports Mobile Money top-ups and release post job completion."
                 ],
                 techStack: {
-                    Frontend: ["React 19", "Vite", "React Router v7", "Custom Modular CSS", "Context API"],
-                    Backend: ["Node.js", "Express 5", "Supabase Admin SDK", "Custom JWT & RBAC"],
-                    DatabaseCloud: ["Supabase PostgreSQL", "Row Level Security (RLS)", "Supabase Realtime", "PL/pgSQL Triggers"]
-                }
-            },
-            spoticheck: {
-                title: "spotiCheck — Spotify Family Plan Billing & Reminder Platform",
-                category: "Mobile Application & Serverless Edge Architecture",
-                repoUrl: "https://github.com/py4Charles/spotifyCheck.git",
-                description: "Eliminates manual calculations and billing headaches for shared subscriptions by automating member management, fair-split billing cycles, payment tracking, and scheduled push notification reminders.",
-                features: [
-                    "Spotify-Inspired Dark Mode UI: Styled using custom design tokens (#090D0A dark canvas with #1DB954 accent).",
-                    "Fair Split Billing Cycles: Calculates per-member shares evenly for GHS, NGN, KES, ZAR, USD, EUR, and GBP.",
-                    "Payment & Due Tracking: Real-time status indicators (Paid, Unpaid, Overdue) with transaction logging.",
-                    "Automated Push Reminders: Idempotent Supabase Deno Edge Function triggers scheduled notifications.",
-                    "Frictionless Invites: Email-matched registration automatically ties new accounts to existing plan groups.",
-                    "Offline Resilience: TanStack Query combined with React Native Async Storage persister."
-                ],
-                techStack: {
-                    Frontend: ["Expo (SDK 58)", "React Native 0.88.1", "React 19", "Expo Router v4", "TanStack Query v5"],
-                    Backend: ["Supabase PostgreSQL (RLS)", "Supabase Deno Edge Functions", "Supabase Auth"]
+                    Frontend: ["React 19", "Vite", "React Router v7", "Supabase Client"],
+                    Backend: ["Node.js", "Express 5", "Supabase Admin SDK"],
+                    Database: ["PostgreSQL 15+", "Row Level Security (RLS)", "PL/pgSQL Triggers"]
                 }
             },
             legacybank: {
                 title: "Legacy Trust Bank — Digital Banking Platform",
                 category: "Fintech & Full-Stack Systems Architecture",
                 repoUrl: "https://github.com/py4Charles/legacy-trust-bank.git",
-                description: "A full-stack demo of a digital banking platform with secure two-factor login, accounts/transactions management, freezable cards, dual-authorisation payments, and an admin audit trail.",
+                description: "Full-stack digital banking platform demo with 2FA OTP login, integer-based money ledger, dual-authorisation payments, freezable cards, and immutable audit logs.",
                 features: [
-                    "Authentication & Session: Email/password with bcrypt, 2FA 6-digit OTP, and account lockout protection.",
-                    "Accounts & Money Movement: Integer cents money storage, race-safe debits, and per-user idempotency keys.",
-                    "Dual Authorisation: High-value payments require secondary user approval.",
-                    "Cards & Notifications: Card freezing, limit adjustments, recipient management, and alerts.",
-                    "Platform Administration: User management, platform statistics, and immutable audit logging."
+                    "Security & Authentication: 2FA 6-digit OTP and SHA-256 hashed refresh tokens.",
+                    "Integer Money Ledger: Zero floating-point calculation drift for accurate debits/credits.",
+                    "Dual Authorisation: High-value transfers require secondary user approval.",
+                    "Audit Trail: Immutable logging for administrative security."
                 ],
                 techStack: {
-                    Frontend: ["React 18", "Vite 6", "TypeScript", "Tailwind CSS", "Zustand"],
-                    Backend: ["Express 4", "TypeScript", "Prisma 6 (SQLite)", "Zod", "jsonwebtoken", "bcryptjs"]
+                    Frontend: ["React 18", "Vite 6", "TypeScript", "Tailwind CSS"],
+                    Backend: ["Express 4", "Prisma 6 (SQLite)", "Zod", "jsonwebtoken", "bcryptjs"]
                 }
             },
             streamplus: {
-                title: "StreamPlus API — Video & Movie Streaming Backend Engine",
-                category: "Async RESTful API & Pure Backend Integration",
+                title: "StreamPlus API — Video Streaming Engine",
+                category: "Pure Backend Integration",
                 repoUrl: "https://github.com/py4Charles/advanced_api_backend.git",
-                description: "A modern, asynchronous RESTful API for StreamPlus — a video and movie streaming platform. Built with FastAPI, SQLAlchemy (Async), and Pydantic, featuring dual-database support (PostgreSQL & SQLite), passwordless OTP authentication, JWT security, user watchlist management, catalog administration, and automated mock data generation. Engineered specifically as a pure backend integration for a frontend movie streaming site.",
+                description: "Asynchronous RESTful API for StreamPlus — powering streaming catalog management, passwordless OTP, JWT security, and custom watchlists for frontend video applications.",
                 features: [
-                    "Async-First Execution: Built on Starlette and ASGI standard using asyncio for non-blocking I/O with SQLAlchemy 2.0 async ORM sessions.",
-                    "Dual-Database Support: Auto-switches between SQLite (local dev) and PostgreSQL (production) with custom cross-compatible UUID and MovieID types.",
-                    "Passwordless OTP Auth: Generates and emails verification OTP codes with 5-minute TTL, in-memory rate limiting (max 3 retries), and auto-registration.",
-                    "JWT Security & RBAC: HMAC-SHA256 signed tokens with user roles (CLIENT, TASKER, ADMIN) and subscription tiers (FREE, PREMIUM, PREMIUM_PLUS).",
-                    "Movie Catalog & Watchlists: Custom sequential identifiers (stp-0001), Pydantic validators, streaming metadata, and user watchlist tracking.",
-                    "Admin Dashboard & Automated Seeding: Real-time system metrics, account controls, and automated Faker data generation scripts."
+                    "Async-First Execution: Built on FastAPI, Starlette, and SQLAlchemy 2.0 Async Engine.",
+                    "Dual-Database Support: Auto-switches between SQLite (aiosqlite) and PostgreSQL (asyncpg).",
+                    "Passwordless OTP Auth: Email OTP code generation with rate limiting and retry safeguards.",
+                    "Role-Based Access Control: Granular JWT permissions across CLIENT, TASKER, and ADMIN roles."
                 ],
                 techStack: {
-                    FrameworkServer: ["FastAPI (Python 3.10+)", "Uvicorn (ASGI)"],
-                    DatabaseORM: ["SQLAlchemy 2.0 (Async Engine)", "asyncpg (PostgreSQL)", "aiosqlite (SQLite)"],
-                    ValidationSecurity: ["Pydantic & Pydantic-Settings", "python-jose (JWT)", "Passlib (Bcrypt)"],
-                    DeploymentData: ["Render Cloud", "Faker Seed Generator"]
+                    Framework: ["FastAPI", "Python 3.10+", "Uvicorn ASGI"],
+                    ORM_DB: ["SQLAlchemy 2.0 (Async)", "asyncpg", "aiosqlite"],
+                    Security: ["python-jose (JWT)", "passlib (Bcrypt)", "Pydantic v2"]
+                }
+            },
+            healzy: {
+                title: "Healzy Backend Spring — Flashcard REST API",
+                category: "Pure Backend Integration",
+                repoUrl: "https://github.com/py4Charles/healzy-spring-backend.git",
+                description: "Pure backend service for the Healzy flashcard platform, delivering high-performance RESTful API endpoints for user authentication and flashcard set CRUD operations.",
+                features: [
+                    "JWT User Authentication: Secure user registration, password hashing, and token issuance.",
+                    "Flashcard Set CRUD: Endpoints for creating, editing, fetching, and deleting study card decks.",
+                    "Token-Based Security: Endpoint authorization using Spring Security filters."
+                ],
+                techStack: {
+                    Core: ["Java 17+", "Spring Boot", "Spring Security"],
+                    Database_Tools: ["Spring Data JPA / Hibernate", "Maven / Gradle", "JWT (jjwt)"]
+                }
+            },
+            spoticheck: {
+                title: "spotiCheck — Spotify Family Plan Billing Platform",
+                category: "Mobile Application & Serverless Edge",
+                repoUrl: "https://github.com/py4Charles/spotifyCheck.git",
+                description: "Automates family plan member management, fair-split subscription billing, and scheduled payment push reminders.",
+                features: [
+                    "Fair Split Billing: Auto-calculates per-member share across multiple currencies.",
+                    "Automated Push Reminders: Scheduled Supabase Deno Edge Functions.",
+                    "Offline Persistence: TanStack Query caching with React Native Async Storage."
+                ],
+                techStack: {
+                    Frontend: ["Expo (SDK 58)", "React Native", "React 19"],
+                    Backend: ["Supabase PostgreSQL", "Deno Edge Functions", "Supabase Auth"]
                 }
             },
             glom: {
-                title: "Glom data-house — v1.0.0",
+                title: "Glom data-house — Members Directory",
                 category: "Directory & Full-Stack Architecture",
                 repoUrl: "https://github.com/py4Charles/glom_db.git",
-                description: "A members directory MVP rollout — an end-to-end usable product slice featuring a React frontend and Express/Postgres API over a single members database table with deep URL state sync.",
+                description: "Directory rollout featuring React 19 and Express/Postgres API with deep URL state synchronization.",
                 features: [
-                    "Directory Browsing & Filtering: Search by full name; filter by gender, marital status, and title.",
-                    "Advanced Multi-Field Sorting: Multi-column sorting keeping empty values strictly last.",
-                    "Full CRUD Operations: View single records, create new entries, edit details, and remove records.",
-                    "URL State Persistence: Active state lives directly in the URL for linkable dynamic states.",
-                    "Clean Modular Architecture: Clean division between API server and frontend SPA."
+                    "Multi-Field Sorting & Filters: Filter by title, marital status, or gender with URL sync.",
+                    "CRUD Operations: Full record creation, updating, and deletion.",
+                    "Clean Modular Separation: Structured Express API and Vite React SPA."
                 ],
                 techStack: {
-                    Frontend: ["React 19", "Vite", "React Router v7", "Tailwind CSS"],
+                    Frontend: ["React 19", "Vite", "React Router v7"],
                     Backend: ["Node.js", "Express 5 API", "node-postgres pool", "Supabase Auth"]
                 }
             },
             twochat: {
-                title: "2chat-app — Real-Time Chat & Admin Broadcast Engine",
+                title: "2chat-app — Real-Time Chat & Broadcast Engine",
                 category: "Backend Integration & WebSocket Messaging",
                 repoUrl: "https://github.com/py4Charles/2chat-app.git",
-                description: "A full-stack real-time chat application featuring 1-on-1 private messaging, presence tracking, and an admin-only broadcast channel, engineered as a custom backend integration on Socket.io.",
+                description: "Full-stack real-time chat application featuring 1-on-1 private messaging, presence tracking, and admin broadcast channels built on Socket.io.",
                 features: [
-                    "Socket.io Messaging: Instant bidirectional communication with message timestamping.",
-                    "Active Presence & Last Seen: Real-time user online/offline status with humanized timestamps.",
-                    "Official Announcements Channel: Pinned verified channel with role-protected broadcasting.",
-                    "In-Memory History: Room history retained during server uptime with instant previews.",
-                    "Health Metrics Endpoint: Reports server uptime, timestamps, and memory usage."
+                    "Bidirectional WebSockets: Instant messaging with auto-scroll feeds.",
+                    "Presence & Last Seen: Real-time online/offline presence indicators.",
+                    "Role-Protected Announcements: Verified broadcast channel reserved for admin posts."
                 ],
                 techStack: {
-                    Frontend: ["React 19", "Vite 8", "Socket.io Client 4", "Vanilla CSS3"],
-                    Backend: ["Node.js", "Express 5", "Socket.io 4", "CORS"]
+                    Frontend: ["React 19", "Vite", "Socket.io Client 4"],
+                    Backend: ["Node.js", "Express 5", "Socket.io 4 Server"]
                 }
             },
             smartirrigation: {
-                title: "Smart-irrigation — Intelligent IoT Irrigation System",
-                category: "Embedded Microcontrollers, IoT & Cloud Automation",
+                title: "Smart-irrigation — Intelligent IoT System",
+                category: "Embedded Microcontrollers & IoT Automation",
                 repoUrl: "https://github.com/py4Charles/cdnb-solo-build.git",
-                description: "An end-to-end IoT intelligent irrigation solution combining ESP8266 microcontrollers, a Python Flask/Socket.IO backend, and a modern React 19 telemetry dashboard.",
+                description: "IoT irrigation solution combining ESP8266 microcontrollers, Python Flask backend, and a React telemetry dashboard.",
                 features: [
-                    "Embedded Firmware: High-priority ADC sampling mapped to soil moisture with pump actuation.",
-                    "Predictive Rain-Skip Automation: Integrated with Open-Meteo Weather API to prevent wasteful watering.",
-                    "Pump Safety Watchdogs: Auto-stops pump if reservoir water is depleted to prevent burnout.",
-                    "Interactive React 19 Dashboard: Live telemetry cards, trend charts, and dynamic threshold sliders."
+                    "Embedded Firmware: ADC soil sampling mapped to actuation triggers.",
+                    "Predictive Rain-Skip: Open-Meteo API integration suspends watering during rain forecasts.",
+                    "Run-Dry Pump Watchdog: Auto-stops pump when water levels dip below safety limits."
                 ],
                 techStack: {
-                    Firmware: ["ESP8266 C++", "Arduino Framework", "HTTPClient", "Wokwi Simulator"],
-                    Backend: ["Python 3", "Flask", "Flask-SocketIO", "SQLite", "Open-Meteo API"],
-                    Frontend: ["React 19", "Vite", "Tailwind CSS", "Recharts", "Lucide Icons"]
-                }
-            },
-            healzy: {
-                title: "Healzy Backend Spring — RESTful Flashcard & Auth Service",
-                category: "Spring Boot REST API & Pure Backend Integration",
-                repoUrl: "https://github.com/py4Charles/healzy-spring-backend.git",
-                description: "This is the backend service for the Healzy application, built using Java and Spring Boot. It provides a resilient, secure RESTful API for managing flashcard sets and user authentication with JWT token security. Engineered specifically as a pure backend integration.",
-                features: [
-                    "User Authentication & Security: Registration and login powered by Spring Security and JWT bearer tokens.",
-                    "Flashcard Set Management: Full CRUD operations for creating, updating, retrieving, and deleting flashcard sets.",
-                    "Protected API Endpoints: Token-based authorization ensuring secure access control across user resources.",
-                    "Scalable Architecture: Enterprise Spring Boot structure with clean layer separation (Controllers, Services, Repositories)."
-                ],
-                techStack: {
-                    FrameworkServer: ["Spring Boot 3", "Java 17+"],
-                    SecurityAuth: ["Spring Security", "JSON Web Tokens (JWT)"],
-                    Persistence: ["Spring Data JPA", "Hibernate ORM", "PostgreSQL / H2"],
-                    BuildTools: ["Maven", "Gradle"]
+                    Firmware: ["ESP8266 C++", "Arduino Framework"],
+                    Backend: ["Python 3", "Flask", "Flask-SocketIO"],
+                    Frontend: ["React 19", "Vite", "Tailwind CSS", "Recharts"]
                 }
             }
         };
@@ -1005,7 +1066,7 @@
             let repoBtnHtml = '';
             if (data.repoUrl) {
                 repoBtnHtml = `
-                    <a href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-brand-cyan text-slate-950 font-bold text-sm text-center flex items-center justify-center space-x-2 hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all">
+                    <a href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl border border-gray-700 hover:border-brand-cyan glass text-white font-semibold text-sm text-center flex items-center justify-center space-x-2 transition-all">
                         <i class="fa-brands fa-github text-base"></i>
                         <span>Visit GitHub Repository</span>
                     </a>
@@ -1048,7 +1109,6 @@
             }
         });
 
-        // Contact Form Submission Handler
         const contactForm = document.getElementById('contact-form');
         const toastSuccess = document.getElementById('toast-success');
         const submitBtn = document.getElementById('submit-btn');
